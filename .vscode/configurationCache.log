@@ -1,1 +1,0 @@
-{"buildTargets":["build_broker","build_front","down","folder","kill","start","stop","up","up_build"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
