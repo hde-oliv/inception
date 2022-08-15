@@ -6,35 +6,42 @@ services:
     build:
       context: ./requirements/nginx
       dockerfile: ./Dockerfile
-    restart: always
     ports:
       - "443:443"
     networks:
       - hde-oliv
     volumes:
       - wordpress_vol:/www
+    env_file: ./.env
+    depends_on:
+      - wordpress
+    restart: always
 
   wordpress:
     container_name: wordpress
     build:
       context: ./requirements/wordpress
       dockerfile: ./Dockerfile
-    restart: always
     networks:
       - hde-oliv
     volumes:
-      - wordpress_vol:/usr/share/webapps/wordpress
+      - wordpress_vol:/www
+    env_file: ./.env
+    depends_on:
+      - mariadb
+    restart: always
 
   mariadb:
     container_name: mariadb
     build:
       context: ./requirements/mariadb
       dockerfile: ./Dockerfile
-    restart: always
     networks:
       - hde-oliv
     volumes:
       - mariadb_vol:/var/lib/mysql
+    env_file: ./.env
+    restart: always
 
 networks:
   hde-oliv:
@@ -44,14 +51,6 @@ networks:
 volumes:
   wordpress_vol:
     name: "wordpress_vol"
-    driver_opts:
-      o: bind
-      type: none
-      device: /home/hde-oliv/data
 
   mariadb_vol:
     name: "mariadb_vol"
-    driver_opts:
-      o: bind
-      type: none
-      device: /home/hde-oliv/data

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 mkdir -p /etc/nginx/certificate
 mv ./nginx.key /etc/nginx/certificate
 mv ./nginx-certificate.crt /etc/nginx/certificate

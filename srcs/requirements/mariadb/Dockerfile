@@ -10,8 +10,12 @@ COPY . /
 
 WORKDIR /conf
 
+RUN chmod +x run.sh 
+
 RUN chmod +x setup.sh && ./setup.sh
+
+RUN chown -R mysql:mysql /conf
 
 USER mysql
 
-CMD ["mysqld"]
+CMD ["sh", "run.sh"]

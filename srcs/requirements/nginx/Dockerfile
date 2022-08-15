@@ -6,7 +6,7 @@ STOPSIGNAL SIGQUIT
 
 RUN apk update && apk add nginx
 
-RUN adduser -D -g 'www' www && mkdir /www && chown -R www:www /var/lib/nginx && chown -R www:www /www
+RUN adduser -D -u 4242 -g 'www' www && mkdir /www && chown -R www:www /var/lib/nginx && chown -R www:www /www
 
 COPY . /
 
