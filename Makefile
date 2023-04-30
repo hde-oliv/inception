@@ -6,7 +6,7 @@ folder:
 
 host:
 	@sudo chmod a+w /etc/hosts && sudo cat /etc/hosts | grep hde-oliv.42.fr || \
-	@sudo echo "127.0.0.1 hde-oliv.42.fr" >> /etc/hosts
+	sudo echo "127.0.0.1 hde-oliv.42.fr" >> /etc/hosts
 
 up:
 	@sudo docker-compose -f srcs/docker-compose.yml up -d
