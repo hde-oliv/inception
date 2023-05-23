@@ -24,7 +24,7 @@ RUN mv ./wp-config.php /www
 
 RUN chown -R www:www /www
 
-RUN chown -R www:www /var/log/php7
+RUN chown -R www:www /var/log/php81
 
 USER www
 
