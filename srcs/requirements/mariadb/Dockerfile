@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.17
 
 EXPOSE 3306
 
@@ -10,7 +10,7 @@ COPY . /
 
 WORKDIR /conf
 
-RUN chmod +x run.sh 
+RUN chmod +x run.sh
 
 RUN chmod +x setup.sh && ./setup.sh
 
